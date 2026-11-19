@@ -31,3 +31,11 @@
   .hero-shade { background: linear-gradient(0deg, rgba(0,0,0,.55), transparent 38%); }
   .hero-copy { left: 7%; bottom: 12%; }
 }
+
+/* Desktop release artwork size: explicit override */
+@media (min-width: 701px) {
+  .music-section .release-grid { display:grid; grid-template-columns:repeat(3, 160px) !important; gap:32px !important; justify-content:start; }
+  .music-section .release-card { width:160px !important; max-width:160px !important; }
+  .music-section .release-card > a { display:block; width:160px !important; height:160px !important; aspect-ratio:1 / 1; }
+  .music-section .release-card img { display:block; width:160px !important; height:160px !important; object-fit:contain !important; }
+}
