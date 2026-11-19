@@ -1,0 +1,11 @@
+
+/* MULTI-PAGE NAVIGATION AND SECTION LINKS */
+.and-more{display:table;margin:44px 0 0 auto;padding:10px 0;border-bottom:1px solid currentColor;font:500 17px "Oswald",sans-serif;letter-spacing:.08em;transition:opacity .2s}
+.and-more:hover{opacity:.55}
+.bio-section .and-more{margin:32px 0 0 auto}
+.social-section .and-more{margin-top:32px}
+.detail-page .site-header.detail-header{position:relative;background:#090909}
+.detail-page .detail-back{display:block;padding:30px 10% 0;background:#f4f4f1;font:500 13px "Oswald",sans-serif;letter-spacing:.12em}
+.detail-page .bio-section,.detail-page .social-section,.detail-page .inquiry-section{min-height:calc(100svh - 250px)}
+.detail-page .site-footer{margin-top:0}
+@media(max-width:700px){.and-more{margin-top:32px}.detail-page .detail-back{padding:26px 7% 0}}

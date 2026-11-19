@@ -6,6 +6,7 @@ nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
 
 async function loadEntries(file, targetId, type){
   const target=document.getElementById(targetId);
+  if(!target) return;
   try{
     const response=await fetch(file);
     if(!response.ok) throw new Error("Could not load data");
