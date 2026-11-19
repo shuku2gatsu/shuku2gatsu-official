@@ -9,3 +9,12 @@
 .detail-page .bio-section,.detail-page .social-section,.detail-page .inquiry-section{min-height:calc(100svh - 250px)}
 .detail-page .site-footer{margin-top:0}
 @media(max-width:700px){.and-more{margin-top:32px}.detail-page .detail-back{padding:26px 7% 0}}
+
+/* MV SECTION */
+.mv-section{background:#f4f4f1}
+.mv-content{max-width:760px;margin:0 auto;text-align:center}
+.mv-video{position:relative;width:100%;aspect-ratio:16/9;background:#111;overflow:hidden}
+.mv-video iframe{display:block;width:100%;height:100%;border:0}
+.mv-title{font-weight:700;font-size:clamp(17px,2vw,23px);margin:22px 0 10px}
+.mv-youtube-link{display:inline-block;border-bottom:1px solid currentColor;padding:6px 0;font-size:13px;letter-spacing:.05em}
+.mv-youtube-link:hover{opacity:.6}

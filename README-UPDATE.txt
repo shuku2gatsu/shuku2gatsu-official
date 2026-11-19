@@ -1,9 +1,13 @@
-祝二月 公式サイト 複数ページ版
+祝二月 公式サイト MV追加・レイアウト修正版
 
-index.html と live.html, news.html, biography.html, music.html, links.html, ticket.html, contact.html を追加・更新しました。
-CSSは css/multipage.css を追加します。
-既存の css/style.css のスマホ写真表示とPCジャケットサイズを維持しています。
+変更点：
+- トップページのSTAY CONNECTEDをCONTACT USの後、最下部に移動
+- TICKETとCONTACT USの「and more...」を削除
+- MUSICの下にMVセクションを追加。「はなだより/祝二月」のYouTube埋め込みと直接リンク
+- MV専用ページ mv.html を追加
+- ハンバーガーメニューにMVを追加（全ページ）、LINKS項目を削除（STAY CONNECTEDはトップ最下部に残ります）
+- MUSIC専用ページにもMVを追加
 
-GitHubのリポジトリのルートに、ZIPを解凍した中身をフォルダ構成ごと反映してください。
-既存の data/live.json と data/news.json は更新を続けている場合、上書きしないでください。
-既存の images フォルダの画像は同じファイル名で維持してください。
+GitHubリポジトリのルートに解凍したファイルをフォルダ構成のままアップロードしてください。
+既存のLIVE/NEWSデータを編集している場合、data/live.json と data/news.json は上書きしないでください。
+YouTube側の埋め込み設定によってはサイト内再生が制限される場合があります。その際は「YouTubeで見る ↗」から直接視聴できます。
