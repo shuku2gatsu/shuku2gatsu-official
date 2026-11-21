@@ -12,12 +12,14 @@ async function loadEntries(file, targetId, type){
     if(!response.ok) throw new Error("Could not load data");
     const entries=await response.json();
     if(!entries.length){target.innerHTML=`<p class="empty-entry">${type==="live"?"現在、公開中のライブ情報はありません。":"現在、お知らせはありません。"}</p>`;return;}
+    const isNewsDetail=type==="news" && /(?:^|\/)news\.html$/.test(location.pathname);
     target.innerHTML=entries.map(item=>{
       const date=item.date||"";
       const title=item.title||"";
       const meta=[item.venue,item.open&&`OPEN ${item.open}`,item.start&&`START ${item.start}`].filter(Boolean).join(" / ");
       const link=item.url?`<a class="entry-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener" aria-label="詳細を見る">↗</a>`:"";
-      return `<article class="entry"><div class="entry-date">${escapeHtml(date)}</div><div><div class="entry-title">${escapeHtml(title)}</div>${meta?`<div class="entry-meta">${escapeHtml(meta)}</div>`:""}</div>${link}</article>`;
+      const details=isNewsDetail ? `<div class="news-detail-copy">${(Array.isArray(item.body)?item.body:[]).map(line=>`<p>${escapeHtml(line)}</p>`).join("")}${Array.isArray(item.tracks)?`<p class="news-track-heading">EP「4/3」</p><ol>${item.tracks.map(track=>`<li>${escapeHtml(track)}</li>`).join("")}</ol>`:""}</div>` : "";
+      return `<article class="entry"><div class="entry-date">${escapeHtml(date)}</div><div><div class="entry-title">${escapeHtml(title)}</div>${meta?`<div class="entry-meta">${escapeHtml(meta)}</div>`:""}${details}</div>${link}</article>`;
     }).join("");
   }catch(error){target.innerHTML='<p class="empty-entry">情報を読み込めませんでした。</p>';}
 }
