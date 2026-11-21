@@ -18,8 +18,9 @@ async function loadEntries(file, targetId, type){
       const title=item.title||"";
       const meta=[item.venue,item.open&&`OPEN ${item.open}`,item.start&&`START ${item.start}`].filter(Boolean).join(" / ");
       const link=item.url?`<a class="entry-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener" aria-label="詳細を見る">↗</a>`:"";
+      const cover=isNewsDetail && item.image ? `<img class="news-cover" src="${escapeHtml(item.image)}" alt="${escapeHtml(title)} ジャケット写真" loading="lazy">` : "";
       const details=isNewsDetail ? `<div class="news-detail-copy">${(Array.isArray(item.body)?item.body:[]).map(line=>`<p>${escapeHtml(line)}</p>`).join("")}${Array.isArray(item.tracks)?`<p class="news-track-heading">EP「4/3」</p><ol>${item.tracks.map(track=>`<li>${escapeHtml(track)}</li>`).join("")}</ol>`:""}</div>` : "";
-      return `<article class="entry"><div class="entry-date">${escapeHtml(date)}</div><div><div class="entry-title">${escapeHtml(title)}</div>${meta?`<div class="entry-meta">${escapeHtml(meta)}</div>`:""}${details}</div>${link}</article>`;
+      return `<article class="entry"><div class="entry-date">${escapeHtml(date)}</div><div><div class="entry-title">${escapeHtml(title)}</div>${meta?`<div class="entry-meta">${escapeHtml(meta)}</div>`:""}${cover}${details}</div>${link}</article>`;
     }).join("");
   }catch(error){target.innerHTML='<p class="empty-entry">情報を読み込めませんでした。</p>';}
 }
