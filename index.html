@@ -39,6 +39,11 @@
 .site-header .wordmark {font-family:"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP","MS PMincho",serif !important;font-weight:300 !important;letter-spacing:.09em;}
 .site-header .wordmark span {font-family:"Oswald","Noto Sans JP",sans-serif;letter-spacing:.15em;}
 </style>
+<style>
+/* LIVE flyer thumbnails: keep original aspect ratio and prevent oversized posters */
+.live-section .entry-list img { display:block; width:auto; max-width:min(100%, 260px); max-height:340px; height:auto; object-fit:contain; }
+@media (max-width: 767px) { .live-section .entry-list img { max-width:min(100%, 190px); max-height:260px; } }
+</style>
 </head>
 <body>
 <header class="site-header">
