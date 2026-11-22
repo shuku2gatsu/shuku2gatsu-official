@@ -56,6 +56,28 @@
 }
 @media (max-width:360px) { .music-section .release-grid { gap:12px 8px !important; } }
 </style>
+<style>
+/* NEWS jacket thumbnails: equal-size squares, no cropping, mobile friendly */
+.news-section .entry-list .news-cover {
+  display:block !important;
+  box-sizing:border-box !important;
+  width:min(100%, 220px) !important;
+  height:auto !important;
+  aspect-ratio:1 / 1 !important;
+  max-width:220px !important;
+  max-height:220px !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  margin:14px 0 !important;
+}
+@media (max-width:767px) {
+  .news-section .entry-list .news-cover {
+    width:min(100%, 150px) !important;
+    max-width:150px !important;
+    max-height:150px !important;
+  }
+}
+</style>
 </head>
 <body>
 <header class="site-header">

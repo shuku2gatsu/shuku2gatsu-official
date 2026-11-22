@@ -20,6 +20,28 @@
 .site-header .wordmark {font-family:"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP","MS PMincho",serif !important;font-weight:300 !important;letter-spacing:.09em;}
 .site-header .wordmark span {font-family:"Oswald","Noto Sans JP",sans-serif;letter-spacing:.15em;}
 </style>
+<style>
+/* NEWS jacket thumbnails: equal-size squares, no cropping, mobile friendly */
+.news-section .entry-list .news-cover {
+  display:block !important;
+  box-sizing:border-box !important;
+  width:min(100%, 220px) !important;
+  height:auto !important;
+  aspect-ratio:1 / 1 !important;
+  max-width:220px !important;
+  max-height:220px !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  margin:14px 0 !important;
+}
+@media (max-width:767px) {
+  .news-section .entry-list .news-cover {
+    width:min(100%, 150px) !important;
+    max-width:150px !important;
+    max-height:150px !important;
+  }
+}
+</style>
 </head>
 <body class="detail-page">
 <header class="site-header detail-header">
