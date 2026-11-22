@@ -18,7 +18,7 @@ async function loadEntries(file, targetId, type){
       const date=item.date||"";
       const title=item.title||"";
       const meta=[item.venue,item.open&&`OPEN ${item.open}`,item.start&&`START ${item.start}`].filter(Boolean).join(" / ");
-      const link=item.url?`<a class="entry-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener" aria-label="詳細を見る">↗</a>`:"";
+      const link=type!=="live" && item.url?`<a class="entry-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener" aria-label="詳細を見る">↗</a>`:"";
       const liveDetails=isLiveDetail ? `<div class="live-detail-copy">${item.image?`<img class="live-flyer" src="${escapeHtml(item.image)}" alt="${escapeHtml(title)} フライヤー" loading="lazy">`:""}${item.artists?.length?`<p><strong>出演</strong>：${item.artists.map(escapeHtml).join(" / ")}</p>`:""}${item.price?`<p><strong>料金</strong>：${escapeHtml(item.price)}</p>`:""}${item.note?`<p>${escapeHtml(item.note)}</p>`:""}${item.url?`<p><a class="live-ticket-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener">チケット・取り置き ↗</a></p>`:""}</div>` : "";
       const cover=isNewsDetail && item.image ? `<img class="news-cover" src="${escapeHtml(item.image)}" alt="${escapeHtml(title)} ジャケット写真" loading="lazy">` : "";
       const details=isNewsDetail ? `<div class="news-detail-copy">${(Array.isArray(item.body)?item.body:[]).map(line=>`<p>${escapeHtml(line)}</p>`).join("")}${Array.isArray(item.tracks)?`<p class="news-track-heading">EP「4/3」</p><ol>${item.tracks.map(track=>`<li>${escapeHtml(track)}</li>`).join("")}</ol>`:""}</div>` : "";
