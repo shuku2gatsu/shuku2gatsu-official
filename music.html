@@ -20,6 +20,18 @@
 .site-header .wordmark {font-family:"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP","MS PMincho",serif !important;font-weight:300 !important;letter-spacing:.09em;}
 .site-header .wordmark span {font-family:"Oswald","Noto Sans JP",sans-serif;letter-spacing:.15em;}
 </style>
+<style>
+/* MUSIC: uniform square jacket cards, responsive without overflow */
+.music-section .release-grid { display:grid !important; grid-template-columns:repeat(3,minmax(0,1fr)) !important; gap:clamp(12px,2.4vw,28px) !important; max-width:960px !important; width:100% !important; margin-left:auto !important; margin-right:auto !important; }
+.music-section .release-card { min-width:0 !important; width:100% !important; max-width:none !important; }
+.music-section .release-card > a { display:block !important; position:relative !important; width:100% !important; aspect-ratio:1/1 !important; height:auto !important; overflow:hidden !important; }
+.music-section .release-card > a > img { display:block !important; width:100% !important; height:100% !important; max-width:100% !important; max-height:100% !important; aspect-ratio:1/1 !important; object-fit:cover !important; }
+@media (max-width:767px) {
+  .music-section .release-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:16px 12px !important; }
+  .music-section .release-card h3 { overflow-wrap:anywhere; }
+}
+@media (max-width:360px) { .music-section .release-grid { gap:12px 8px !important; } }
+</style>
 </head>
 <body class="detail-page">
 <header class="site-header detail-header">
