@@ -27,6 +27,10 @@
 @media (max-width: 700px) {
   .hero h1 { font-size: clamp(20px, calc(18vw - 80px), 32px); }
 }
+/* GOODS: responsive poster, full artwork visible */
+.goods-section .goods-poster-wrap { max-width: 1000px; margin: 28px auto 0; }
+.goods-section .goods-poster-wrap img { display:block; width:100%; height:auto; object-fit:contain; }
+@media (max-width: 767px) { .goods-section .goods-poster-wrap { margin-top:20px; } }
 </style>
 </head>
 <body>
@@ -46,7 +50,8 @@
 <a href="music.html"><span>05</span> MUSIC</a><a href="mv.html"><span>06</span> MV</a>
 
 <a href="ticket.html"><span>07</span> TICKET</a>
-<a href="contact.html"><span>08</span> CONTACT US</a>
+<a href="index.html#goods"><span>08</span> GOODS</a>
+<a href="contact.html"><span>09</span> CONTACT US</a>
 <div class="nav-social">
 <a href="https://www.youtube.com/@%E7%A5%9D%E4%BA%8C%E6%9C%88" rel="noopener" target="_blank">YouTube ↗</a>
 <a href="https://x.com/shuku2gatsu" rel="noopener" target="_blank">X ↗</a>
@@ -147,6 +152,10 @@
 <div><p class="eyebrow">RESERVATION</p><h2>TICKET<span>.</span></h2></div>
 </div>
 <p class="inquiry-text">チケット取り置きは<a href="https://docs.google.com/forms/d/e/1FAIpQLSefljb15dZCXyTh2TuCdIbK9jiZjsXwRJoSrhI_6K1mb-1xcw/viewform?usp=dialog" rel="noopener noreferrer" target="_blank">こちら</a>から</p>
+</section>
+<section class="section goods-section" id="goods" aria-labelledby="goods-title">
+<div class="section-heading"><div><p class="eyebrow">OFFICIAL MERCHANDISE</p><h2 id="goods-title">GOODS<span>.</span></h2></div></div>
+<div class="goods-poster-wrap"><img src="images/shuku-official-goods.png" alt="祝二月 Official Goods：ピック、ロゴステッカー、ステッカー（ブラック・ホワイト）、ライターのグッズ一覧と価格" loading="lazy" width="1447" height="1024"/></div>
 </section>
 <section class="section inquiry-section contact-section" id="contact">
 <div class="section-heading">
