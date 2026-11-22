@@ -1,7 +1,62 @@
 [
   {
-    "date": "COMING SOON",
-    "title": "次回ライブ情報は決まり次第お知らせします。",
-    "venue": ""
+    "date": "2026.10.15",
+    "title": "SOUND FLASH-Vol.18",
+    "venue": "府中 Flight",
+    "open": "18:00",
+    "start": "18:30",
+    "image": "images/live-20261015.jpg",
+    "artists": [
+      "藻掻く",
+      "祝二月",
+      "オトハコビ",
+      "and more…"
+    ],
+    "price": "ADV ¥1,800 / DOOR ¥2,300 / 学割 ¥1,000（別途1ドリンク代）",
+    "note": "学割をご利用の際は学生証をエントランスでご提示ください。",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSefljb15dZCXyTh2TuCdIbK9jiZjsXwRJoSrhI_6K1mb-1xcw/viewform?usp=dialog"
+  },
+  {
+    "date": "2026.09.09",
+    "title": "LOOPHPLES自主企画 - GOLD",
+    "venue": "下北沢 Flowers Loft",
+    "open": "17:30",
+    "start": "18:00",
+    "image": "images/live-20260909.jpg",
+    "artists": [
+      "エントラスト",
+      "kalmia",
+      "祝二月",
+      "夜な夜な不"
+    ],
+    "price": "ADV ¥2,000 / DOOR ¥2,500（別途1ドリンク代）",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSefljb15dZCXyTh2TuCdIbK9jiZjsXwRJoSrhI_6K1mb-1xcw/viewform?usp=dialog"
+  },
+  {
+    "date": "2026.08.31",
+    "title": "DRAFT FES 2026 SUMMER in TOKYO 後夜祭",
+    "venue": "下北沢 近松",
+    "open": "17:00",
+    "start": "17:30",
+    "image": "images/live-20260831.jpg",
+    "artists": [
+      "PLUS ALPHA",
+      "祝二月",
+      "CEyes",
+      "稲アレルギー",
+      "うさぎTRIBE",
+      "Es9.Sympathetic Lion"
+    ],
+    "price": "一般 ¥3,000 / 本祭のリストバンド提示 ¥1,000（別途1ドリンク代）",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSefljb15dZCXyTh2TuCdIbK9jiZjsXwRJoSrhI_6K1mb-1xcw/viewform?usp=dialog"
+  },
+  {
+    "date": "2026.08.13",
+    "title": "DRAFT FES 2026 SUMMER",
+    "venue": "下北沢 Laguna",
+    "start": "14:30",
+    "image": "images/live-20260813.jpg",
+    "price": "1DAY 一般 ¥3,000 / 学割 ¥1,500（別途1ドリンク代）｜2DAY 一般 ¥5,500 / 学割 ¥2,500（別途各日1ドリンク代）",
+    "url": "http://loivepocket.jp/e/hqexh"
   }
 ]
