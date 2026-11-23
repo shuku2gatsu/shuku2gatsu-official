@@ -10,18 +10,20 @@ async function loadEntries(file, targetId, type){
   try{
     const response=await fetch(file);
     if(!response.ok) throw new Error("Could not load data");
-    const entries=await response.json();
+    const entries=(await response.json()).slice().sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
+    const isDetailPage=/(?:^|\/)(?:news|live)\.html$/.test(location.pathname);
+    const visibleEntries=isDetailPage ? entries : entries.slice(0,4);
     if(!entries.length){target.innerHTML=`<p class="empty-entry">${type==="live"?"現在、公開中のライブ情報はありません。":"現在、お知らせはありません。"}</p>`;return;}
     const isLiveDetail=type==="live" && /(?:^|\/)live\.html$/.test(location.pathname);
     const isNewsDetail=type==="news" && /(?:^|\/)news\.html$/.test(location.pathname);
-    target.innerHTML=entries.map(item=>{
+    target.innerHTML=visibleEntries.map(item=>{
       const date=item.date||"";
       const title=item.title||"";
       const meta=[item.venue,item.open&&`OPEN ${item.open}`,item.start&&`START ${item.start}`].filter(Boolean).join(" / ");
-      const link=type!=="live" && item.url?`<a class="entry-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener" aria-label="詳細を見る">↗</a>`:"";
-      const liveDetails=isLiveDetail ? `<div class="live-detail-copy">${item.image?`<img class="live-flyer" src="${escapeHtml(item.image)}" alt="${escapeHtml(title)} フライヤー" loading="lazy">`:""}${item.artists?.length?`<p><strong>出演</strong>：${item.artists.map(escapeHtml).join(" / ")}</p>`:""}${item.price?`<p><strong>料金</strong>：${escapeHtml(item.price)}</p>`:""}${item.note?`<p>${escapeHtml(item.note)}</p>`:""}${item.url?`<p><a class="live-ticket-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener">チケット・取り置き ↗</a></p>`:""}</div>` : "";
+      const link=type==="news" && item.url?`<a class="entry-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener" aria-label="詳細を見る">↗</a>`:"";
+      const liveDetails=isLiveDetail ? `<div class="live-detail-copy">${item.image?`<img class="live-flyer" src="${escapeHtml(item.image)}" alt="${escapeHtml(title)} フライヤー" loading="lazy">`:""}${item.artists?.length?`<p><strong>出演</strong>：${item.artists.map(escapeHtml).join(" / ")}</p>`:""}${item.price?`<p><strong>料金</strong>：${escapeHtml(item.price)}</p>`:""}${item.note?`<p>${escapeHtml(item.note)}</p>`:""}</div>` : "";
       const cover=isNewsDetail && item.image ? `<img class="news-cover" src="${escapeHtml(item.image)}" alt="${escapeHtml(title)} ジャケット写真" loading="lazy">` : "";
-      const details=isNewsDetail ? `<div class="news-detail-copy">${(Array.isArray(item.body)?item.body:[]).map(line=>`<p>${escapeHtml(line)}</p>`).join("")}${Array.isArray(item.tracks)?`<p class="news-track-heading">EP「4/3」</p><ol>${item.tracks.map(track=>`<li>${escapeHtml(track)}</li>`).join("")}</ol>`:""}</div>` : "";
+      const details=isNewsDetail ? `<div class="news-detail-copy">${(Array.isArray(item.body)?item.body:[]).map(line=>`<p>${escapeHtml(line)}</p>`).join("")}${item.url && /^https?:\/\//.test(item.url) ? `<p><a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">インタビュー・記事を見る ↗</a></p>` : ""}${Array.isArray(item.tracks)?`<p class="news-track-heading">EP「4/3」</p><ol>${item.tracks.map(track=>`<li>${escapeHtml(track)}</li>`).join("")}</ol>`:""}</div>` : "";
       return `<article class="entry"><div class="entry-date">${escapeHtml(date)}</div><div><div class="entry-title">${escapeHtml(title)}</div>${meta?`<div class="entry-meta">${escapeHtml(meta)}</div>`:""}${cover}${details}${liveDetails}</div>${link}</article>`;
     }).join("");
   }catch(error){target.innerHTML='<p class="empty-entry">情報を読み込めませんでした。</p>';}
